@@ -1,2153 +1,933 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagent-AI | AI Workflow Systems for People-Heavy Teams</title>
-  <meta
-    name="description"
-    content="Sagent-AI helps people-heavy teams reduce repetitive work, improve consistency, and adopt AI without reducing headcount."
-  />
-  <meta name="theme-color" content="#0f766e" />
-  <meta name="color-scheme" content="light" />
-
-  <meta property="og:title" content="Sagent-AI | AI Workflow Systems for People-Heavy Teams" />
-  <meta
-    property="og:description"
-    content="Reduce repetitive work, improve consistency, and help your team do more of its best work with practical AI systems."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sagent-ai.github.io/" />
-  <meta property="og:image" content="https://sagent-ai.github.io/og-image.jpg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sagent-AI | AI Workflow Systems for People-Heavy Teams" />
-  <meta
-    name="twitter:description"
-    content="Practical AI for people-heavy teams: less repetitive work, better consistency, no headcount-cutting pitch."
-  />
-  <meta name="twitter:image" content="https://sagent-ai.github.io/og-image.jpg" />
-
-  <link rel="canonical" href="https://sagent-ai.github.io/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Sagent-AI",
-    "url":"https://sagent-ai.github.io/",
-    "logo":"https://sagent-ai.github.io/logo.png",
-    "email":"hello@sagent-ai.com",
-    "sameAs":[
-      "https://www.linkedin.com/company/your-company"
-    ]
-  }
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sagent-AI — AI That Empowers Your Team</title>
+  <meta name="description" content="We help people-heavy teams use AI to save time, standardize work, and improve output quality — without replacing employees.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --white:#ffffff;
-      --bg:#fcfdfd;
-      --bg-soft:#f5faf8;
-      --bg-soft-2:#f7f8fc;
-      --ink:#0f172a;
-      --text:#334155;
-      --muted:#64748b;
-      --muted-2:#94a3b8;
-      --border:#e2e8f0;
-      --border-strong:#cbd5e1;
-      --accent:#0f766e;
-      --accent-2:#0d9488;
-      --accent-soft:rgba(15,118,110,.08);
-      --accent-soft-2:rgba(15,118,110,.14);
-      --indigo:#4f46e5;
-      --shadow-xs:0 1px 2px rgba(15,23,42,.04);
-      --shadow-sm:0 10px 24px rgba(15,23,42,.05);
-      --shadow-md:0 18px 48px rgba(15,23,42,.08);
-      --shadow-lg:0 28px 80px rgba(15,23,42,.12);
-      --radius-sm:12px;
-      --radius:18px;
-      --radius-lg:28px;
-      --container:1200px;
-      --ease:cubic-bezier(.2,.7,.2,1);
-      --nav-h:78px;
-      --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    :root {
+      --white: #ffffff;
+      --bg-warm: #f8faf9;
+      --bg-sage: #f0f7f4;
+      --bg-teal-dark: #0c4a42;
+      --accent: #0f766e;
+      --accent-hover: #0d9488;
+      --accent-light: #ccfbf1;
+      --accent-bg: rgba(15,118,110,.06);
+      --indigo: #4f46e5;
+      --indigo-bg: rgba(79,70,229,.06);
+      --amber: #d97706;
+      --amber-bg: rgba(217,119,6,.07);
+      --green: #059669;
+      --green-bg: rgba(5,150,105,.07);
+      --text-dark: #111827;
+      --text-body: #374151;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+      --border: #e5e7eb;
+      --border-hover: #d1d5db;
+      --shadow-xs: 0 1px 2px rgba(0,0,0,.04);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-lg: 20px;
+      --ease: cubic-bezier(.4,0,.2,1);
+      --max-w: 1140px;
+      --font: 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{
-      margin:0;
-      font-family:var(--font);
-      background:var(--white);
-      color:var(--text);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-    body.menu-open{overflow:hidden}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font);background:var(--white);color:var(--text-body);line-height:1.65;overflow-x:hidden}
     img{max-width:100%;display:block}
-    a{text-decoration:none;color:inherit}
-    button,input,textarea{font:inherit}
-    button{cursor:pointer}
-    ul{list-style:none;padding:0;margin:0}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    button{font-family:var(--font)}
 
-    .skip-link{
-      position:absolute;
-      left:16px;
-      top:-48px;
-      background:var(--ink);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:10px;
-      z-index:1200;
-      transition:top .2s ease;
-    }
-    .skip-link:focus{top:12px}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+    .section-label{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .section-title{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;color:var(--text-dark);margin-bottom:14px}
+    .section-sub{font-size:1.05rem;color:var(--text-muted);max-width:560px;line-height:1.75}
+    .section-header{text-align:center;margin-bottom:56px;display:flex;flex-direction:column;align-items:center}
+    .accent-text{color:var(--accent)}
+    section{padding:88px 0;position:relative}
 
-    .container{
-      width:min(var(--container), calc(100% - 40px));
-      margin:0 auto;
-    }
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+    .reveal.from-left{transform:translateX(-24px)}
+    .reveal.from-right{transform:translateX(24px)}
+    .reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border:1px solid var(--accent-soft-2);
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      font-size:.8rem;
-      font-weight:700;
-      letter-spacing:.02em;
-    }
+    /* ── Buttons ── */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--radius-sm);font-size:.9375rem;font-weight:600;cursor:pointer;transition:all .2s var(--ease);border:none;white-space:nowrap}
+    .btn svg{width:16px;height:16px;flex-shrink:0}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(15,118,110,.2)}
+    .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 4px 16px rgba(15,118,110,.25)}
+    .btn-secondary{background:var(--white);color:var(--text-dark);border:1.5px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+    .btn-large{padding:16px 32px;font-size:1rem;border-radius:var(--radius)}
 
-    .section{
-      padding:96px 0;
-      position:relative;
-    }
-    .section-header{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 56px;
-    }
-    .section-label{
-      font-size:.78rem;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      color:var(--accent);
-      margin-bottom:12px;
-    }
-    .section-title{
-      margin:0 0 14px;
-      font-size:clamp(2rem, 4vw, 3.25rem);
-      line-height:1.08;
-      letter-spacing:-.04em;
-      color:var(--ink);
-      font-weight:800;
-    }
-    .section-sub{
-      margin:0 auto;
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.8;
-      max-width:680px;
-    }
-    .accent{color:var(--accent)}
+    /* ── Navigation ── */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
+    #nav.scrolled{border-bottom-color:var(--border);box-shadow:var(--shadow-xs);padding:10px 0}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:36px}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;color:var(--text-dark);letter-spacing:-.02em}
+    .nav-logo svg{width:38px;height:38px;flex-shrink:0}
+    .logo-accent{color:var(--accent)}
+    .nav-links{display:flex;gap:28px;margin-left:auto}
+    .nav-links a{font-size:.875rem;font-weight:500;color:var(--text-muted);transition:color .2s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta-btn{padding:8px 18px;font-size:.8rem}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;color:var(--text-dark)}
+    .nav-toggle svg{width:24px;height:24px}
+    .mobile-close{display:none;position:absolute;top:20px;right:20px;background:none;border:none;color:var(--text-dark);cursor:pointer}
+    .mobile-close svg{width:28px;height:28px}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:50px;
-      padding:0 22px;
-      border-radius:14px;
-      border:1px solid transparent;
-      font-weight:700;
-      font-size:.95rem;
-      transition:transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease), color .2s var(--ease);
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{
-      background:var(--accent);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(15,118,110,.18);
-    }
-    .btn-primary:hover{background:var(--accent-2)}
-    .btn-secondary{
-      background:#fff;
-      border-color:var(--border);
-      color:var(--ink);
-    }
-    .btn-secondary:hover{
-      border-color:var(--accent-soft-2);
-      color:var(--accent);
-      background:var(--accent-soft);
-    }
-    .btn-dark{
-      background:var(--ink);
-      color:#fff;
-      box-shadow:0 12px 28px rgba(15,23,42,.18);
-    }
-    .btn-dark:hover{background:#111c33}
+    /* ── Hero ── */
+    #hero{min-height:92vh;display:flex;align-items:center;padding:120px 0 80px;background:linear-gradient(150deg,#f0fdf8 0%,#ffffff 40%,#f5f3ff 100%);overflow:hidden;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-bg);border:1px solid rgba(15,118,110,.12);border-radius:100px;padding:7px 16px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:24px}
+    .hero-badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:softPulse 2.5s ease infinite}
+    @keyframes softPulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-headline{font-size:clamp(2.25rem,5vw,3.75rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;color:var(--text-dark);margin-bottom:20px}
+    .hero-sub{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--text-muted);max-width:480px;line-height:1.75;margin-bottom:32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+    .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+    .hero-stat-number{font-size:1.9rem;font-weight:800;letter-spacing:-.04em;color:var(--accent);line-height:1}
+    .hero-stat-label{font-size:.78rem;color:var(--text-light);margin-top:5px;font-weight:500}
+    .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+    .hero-shape{position:absolute;border-radius:50%;opacity:.5;animation:float 8s ease-in-out infinite}
+    .hero-shape-1{width:280px;height:280px;background:radial-gradient(circle,rgba(15,118,110,.08),transparent 70%);top:-20px;right:20px;animation-delay:0s}
+    .hero-shape-2{width:200px;height:200px;background:radial-gradient(circle,rgba(79,70,229,.07),transparent 70%);bottom:20px;left:0;animation-delay:-3s}
+    .hero-shape-3{width:120px;height:120px;background:radial-gradient(circle,rgba(217,119,6,.06),transparent 70%);top:60%;right:60%;animation-delay:-5s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    .hero-cards{position:relative;width:100%;max-width:380px;margin:0 auto}
+    .hero-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-md);position:relative;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+    .hero-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .hero-card+.hero-card{margin-top:14px}
+    .hero-card-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:8px}
+    .hero-card-value{font-size:1.5rem;font-weight:800;color:var(--accent);letter-spacing:-.02em}
+    .hero-card-desc{font-size:.82rem;color:var(--text-muted);margin-top:4px}
+    .hero-card-bar{height:6px;background:var(--border);border-radius:3px;margin-top:12px;overflow:hidden}
+    .hero-card-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-hover));animation:barFill 2s var(--ease) forwards}
+    .hero-card-bar-fill.delay{animation-delay:.4s}
+    @keyframes barFill{from{width:0}to{width:var(--fill)}}
+    .hero-card-row{display:flex;justify-content:space-between;align-items:center}
+    .hero-card-row+.hero-card-row{margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+    .hero-card-metric{font-size:.82rem;color:var(--text-muted)}
+    .hero-card-metric-val{font-size:.875rem;font-weight:700;color:var(--green)}
+    .card-accent-indigo .hero-card-value{color:var(--indigo)}
 
-    .icon{
-      width:18px;
-      height:18px;
-      flex:0 0 18px;
-    }
+    /* ── Trust Bar ── */
+    #trust{padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--white)}
+    .trust-inner{display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap}
+    .trust-label{font-size:.78rem;color:var(--text-light);font-weight:600;white-space:nowrap}
+    .trust-logos{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:center}
+    .trust-item{display:flex;align-items:center;gap:7px;color:var(--text-light);font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+    .trust-item svg{width:16px;height:16px;opacity:.45}
+    .trust-item:hover{color:var(--text-muted)}
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible{
-      outline:3px solid rgba(15,118,110,.35);
-      outline-offset:3px;
-    }
+    /* ── Problem ── */
+    #problem{background:var(--bg-warm)}
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .problem-text .section-title{text-align:left}
+    .pain-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+    .pain-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .25s var(--ease)}
+    .pain-item:hover{border-color:var(--border-hover);box-shadow:var(--shadow-sm)}
+    .pain-icon{width:36px;height:36px;background:var(--amber-bg);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+    .pain-item h4{font-size:.875rem;font-weight:600;color:var(--text-dark);margin-bottom:2px}
+    .pain-item p{font-size:.8rem;color:var(--text-muted);line-height:1.55}
+    .transform-cards{display:flex;flex-direction:column;gap:14px}
+    .transform-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);transition:all .3s var(--ease)}
+    .transform-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .transform-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .transform-label.before{color:var(--amber)}
+    .transform-label.after{color:var(--green)}
+    .transform-label .dot{width:6px;height:6px;border-radius:50%}
+    .transform-label.before .dot{background:var(--amber)}
+    .transform-label.after .dot{background:var(--green)}
+    .transform-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+    .transform-row:last-child{border-bottom:none}
+    .transform-metric{font-size:.8rem;color:var(--text-muted)}
+    .transform-value{font-size:.875rem;font-weight:700}
+    .transform-value.bad{color:var(--amber)}
+    .transform-value.good{color:var(--green)}
+    .transform-arrow{display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0 auto;color:var(--accent);opacity:.4}
 
-    /* NAV */
-    .nav{
-      position:fixed;
-      inset:0 0 auto 0;
-      z-index:1100;
-      height:var(--nav-h);
-      display:flex;
-      align-items:center;
-      transition:background .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,0);
-    }
-    .nav.scrolled{
-      background:rgba(255,255,255,.92);
-      border-bottom-color:var(--border);
-      box-shadow:var(--shadow-xs);
-    }
-    .nav-inner{
-      width:min(var(--container), calc(100% - 40px));
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:auto 1fr auto auto;
-      align-items:center;
-      gap:20px;
-    }
-    .brand{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-    .brand-mark{
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(15,118,110,.18);
-      flex:0 0 42px;
-    }
-    .brand-wordmark{
-      font-size:1.08rem;
-      font-weight:800;
-      letter-spacing:-.03em;
-      color:var(--ink);
-    }
-    .brand-wordmark span{color:var(--accent)}
-    .nav-links{
-      display:flex;
-      justify-content:center;
-      gap:28px;
-    }
-    .nav-links a{
-      color:var(--muted);
-      font-size:.92rem;
-      font-weight:600;
-      transition:color .2s var(--ease);
-    }
-    .nav-links a:hover{color:var(--ink)}
-    .nav-cta{margin-left:auto}
-    .nav-toggle{
-      display:none;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      background:#fff;
-      border:1px solid var(--border);
-      color:var(--ink);
-      box-shadow:var(--shadow-xs);
-    }
-    .nav-toggle svg{width:20px;height:20px}
+    /* ── Services ── */
+    #services{background:var(--white)}
+    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s var(--ease);position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);border-radius:3px 3px 0 0;opacity:0;transition:opacity .3s}
+    .service-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--border-hover)}
+    .service-card:hover::before{opacity:1}
+    .service-icon{width:48px;height:48px;background:var(--accent-bg);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all .3s var(--ease)}
+    .service-icon svg{width:22px;height:22px;color:var(--accent)}
+    .service-card:hover .service-icon{background:var(--accent-light)}
+    .service-title{font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
+    .service-desc{font-size:.875rem;color:var(--text-muted);line-height:1.7;margin-bottom:18px}
+    .service-features li{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-muted);padding:4px 0}
+    .service-features li::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;flex-shrink:0}
 
-    .menu-backdrop{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(15,23,42,.34);
-      z-index:1040;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .2s ease;
-    }
-    .menu-backdrop.open{
-      display:block;
-      opacity:1;
-      pointer-events:auto;
-    }
+    /* ── Process / How It Works ── */
+    #process{background:var(--bg-sage)}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+    .timeline::before{content:'';position:absolute;top:28px;left:56px;right:56px;height:2px;background:var(--border)}
+    .tl-step{position:relative;z-index:1}
+    .step-num{width:56px;height:56px;background:var(--white);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:700;color:var(--accent);margin-bottom:24px;transition:all .3s var(--ease)}
+    .tl-step:hover .step-num{background:var(--accent);color:var(--white);border-color:var(--accent);box-shadow:0 4px 16px rgba(15,118,110,.2)}
+    .step-duration{font-size:.72rem;font-weight:600;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+    .step-title{font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
+    .step-desc{font-size:.82rem;color:var(--text-muted);line-height:1.65}
 
-    /* HERO */
-    .hero{
-      padding:calc(var(--nav-h) + 40px) 0 72px;
-      background:
-        radial-gradient(circle at 90% 20%, rgba(79,70,229,.08), transparent 28%),
-        radial-gradient(circle at 10% 10%, rgba(15,118,110,.08), transparent 28%),
-        linear-gradient(180deg, #fbfefd 0%, #ffffff 100%);
-      overflow:hidden;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:48px;
-      align-items:center;
-    }
-    .hero-copy{
-      max-width:620px;
-    }
-    .hero-title{
-      margin:18px 0 18px;
-      font-size:clamp(2.4rem, 5vw, 4.6rem);
-      line-height:1.02;
-      letter-spacing:-.06em;
-      font-weight:800;
-      color:var(--ink);
-    }
-    .hero-sub{
-      margin:0 0 28px;
-      font-size:1.08rem;
-      line-height:1.85;
-      color:var(--muted);
-      max-width:590px;
-    }
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin:0 0 32px;
-    }
-    .hero-proof{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:18px;
-      max-width:640px;
-    }
-    .proof-stat{
-      padding:18px 18px 16px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:18px;
-      box-shadow:var(--shadow-sm);
-    }
-    .proof-stat strong{
-      display:block;
-      font-size:1.5rem;
-      line-height:1;
-      letter-spacing:-.04em;
-      color:var(--accent);
-      margin-bottom:8px;
-    }
-    .proof-stat span{
-      display:block;
-      color:var(--muted);
-      font-size:.84rem;
-      line-height:1.5;
-    }
+    /* ── Results ── */
+    #results{background:var(--white)}
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-xs);transition:all .3s var(--ease);display:flex;flex-direction:column}
+    .result-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .result-industry{display:inline-flex;align-items:center;gap:6px;background:var(--accent-bg);border-radius:6px;padding:5px 12px;font-size:.72rem;font-weight:600;color:var(--accent);margin-bottom:16px;width:fit-content;letter-spacing:.04em;text-transform:uppercase}
+    .result-team{font-size:.8rem;color:var(--text-light);margin-bottom:18px}
+    .result-metrics{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;flex:1}
+    .metric-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .metric-row:last-child{border-bottom:none;padding-bottom:0}
+    .metric-label{font-size:.78rem;color:var(--text-light)}
+    .metric-val{font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+    .metric-val.teal{color:var(--accent)}
+    .metric-val.green{color:var(--green)}
+    .metric-val.indigo{color:var(--indigo)}
+    .result-quote{font-size:.84rem;color:var(--text-muted);font-style:italic;line-height:1.65;padding-top:16px;border-top:1px solid var(--border)}
+    .result-author{font-size:.75rem;font-weight:600;color:var(--text-dark);font-style:normal;margin-top:8px}
 
-    .hero-panel{
-      position:relative;
-    }
-    .hero-frame{
-      position:relative;
-      background:linear-gradient(180deg,#ffffff 0%, #f8fcfb 100%);
-      border:1px solid var(--border);
-      border-radius:30px;
-      box-shadow:var(--shadow-lg);
-      overflow:hidden;
-    }
-    .hero-topbar{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:16px 18px;
-      border-bottom:1px solid var(--border);
-      background:rgba(255,255,255,.9);
-    }
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:#cbd5e1;
-    }
-    .hero-visual{
-      padding:28px;
-      display:grid;
-      gap:18px;
-    }
-    .visual-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:20px;
-      box-shadow:var(--shadow-sm);
-    }
-    .visual-label{
-      font-size:.76rem;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-      font-weight:700;
-      color:var(--muted-2);
-      margin-bottom:10px;
-    }
-    .visual-title{
-      margin:0 0 10px;
-      font-size:1.05rem;
-      font-weight:700;
-      color:var(--ink);
-      letter-spacing:-.02em;
-    }
-    .metric-list{
-      display:grid;
-      gap:12px;
-    }
-    .metric{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding-bottom:10px;
-      border-bottom:1px solid var(--border);
-    }
-    .metric:last-child{border-bottom:none;padding-bottom:0}
-    .metric span{
-      color:var(--muted);
-      font-size:.88rem;
-    }
-    .metric strong{
-      color:var(--ink);
-      font-size:.95rem;
-    }
-    .mini-bars{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
-    .bar-wrap{display:grid;gap:6px}
-    .bar-label{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      font-size:.84rem;
-      color:var(--muted);
-    }
-    .bar{
-      height:10px;
-      background:#e8eef4;
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .bar > span{
-      display:block;
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--accent), var(--indigo));
-    }
+    /* ── Testimonials ── */
+    #testimonials{background:var(--bg-warm)}
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .test-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-xs);transition:all .3s var(--ease)}
+    .test-card:hover{box-shadow:var(--shadow-md)}
+    .test-stars{display:flex;gap:2px;margin-bottom:14px;color:#f59e0b}
+    .test-stars svg{width:15px;height:15px}
+    .test-text{font-size:.9rem;color:var(--text-body);line-height:1.75;margin-bottom:20px}
+    .test-author{display:flex;align-items:center;gap:12px}
+    .test-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-hover));display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+    .test-name{font-size:.875rem;font-weight:600;color:var(--text-dark)}
+    .test-role{font-size:.75rem;color:var(--text-light)}
 
-    /* TRUST */
-    .trust{
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
-      background:#fff;
-      padding:22px 0;
-    }
-    .trust-row{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-      gap:14px 28px;
-      text-align:center;
-    }
-    .trust-row .label{
-      color:var(--muted-2);
-      font-weight:700;
-      font-size:.82rem;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
-    .trust-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:#fff;
-      color:var(--muted);
-      font-size:.86rem;
-      font-weight:700;
-    }
+    /* ── Calculator ── */
+    #calculator{background:var(--white)}
+    .calc-wrap{max-width:800px;margin:0 auto;background:var(--bg-sage);border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px;position:relative}
+    .calc-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-bottom:36px}
+    .calc-field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-body);margin-bottom:8px}
+    .calc-val-display{font-size:1.35rem;font-weight:800;color:var(--text-dark);margin-bottom:8px;min-height:32px}
+    .calc-val-display .unit{font-size:.82rem;font-weight:500;color:var(--text-light);margin-left:3px}
+    input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--border);outline:none;cursor:pointer}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 2px 8px rgba(15,118,110,.25);transition:all .2s}
+    input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12);box-shadow:0 2px 12px rgba(15,118,110,.35)}
+    input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:none}
+    .range-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-light);margin-top:5px}
+    .calc-divider{height:1px;background:var(--border);margin-bottom:32px}
+    .calc-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+    .calc-result{text-align:center;padding:20px 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s}
+    .calc-result:hover{box-shadow:var(--shadow-sm)}
+    .calc-result-val{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;color:var(--accent);line-height:1;margin-bottom:6px}
+    .calc-result-label{font-size:.78rem;color:var(--text-light)}
+    .calc-cta{text-align:center}
+    .calc-note{font-size:.75rem;color:var(--text-light);margin-top:14px;text-align:center}
 
-    /* GRID BLOCKS */
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:32px;
-      align-items:start;
-    }
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:24px;
-      box-shadow:var(--shadow-sm);
-    }
+    /* ── About ── */
+    #about{background:var(--bg-sage)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .about-text .section-title{text-align:left}
+    .about-text .section-sub{margin-bottom:32px}
+    .about-values{display:flex;flex-direction:column;gap:20px}
+    .value-item{display:flex;gap:14px}
+    .value-icon{width:44px;height:44px;background:var(--accent-bg);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+    .value-icon svg{width:20px;height:20px;color:var(--accent)}
+    .value-item:hover .value-icon{background:var(--accent-light)}
+    .value-content h4{font-size:.925rem;font-weight:700;color:var(--text-dark);margin-bottom:3px}
+    .value-content p{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+    .about-visual{position:relative}
+    .about-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 32px;box-shadow:var(--shadow-sm)}
+    .dia-label{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:16px;text-align:center}
+    .about-diagram{display:flex;flex-direction:column;align-items:center;gap:0}
+    .dia-layer{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.84rem;font-weight:600;width:100%;text-align:center;transition:all .3s}
+    .dia-layer.human{border-color:rgba(79,70,229,.2);background:var(--indigo-bg);color:var(--indigo)}
+    .dia-layer.ai{border-color:rgba(15,118,110,.2);background:var(--accent-bg);color:var(--accent)}
+    .dia-layer.outcome{border-color:rgba(5,150,105,.2);background:var(--green-bg);color:var(--green)}
+    .dia-layer:hover{transform:scale(1.02)}
+    .dia-layer svg{width:16px;height:16px}
+    .dia-connector{width:2px;height:24px;background:linear-gradient(to bottom,var(--indigo),var(--accent));border-radius:2px;position:relative}
+    .dia-connector.c2{background:linear-gradient(to bottom,var(--accent),var(--green))}
+    .about-stats{margin-top:28px;padding-top:20px;border-top:1px solid var(--border);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .about-stat{text-align:center}
+    .about-stat-val{font-size:1.3rem;font-weight:800}
+    .about-stat-label{font-size:.7rem;color:var(--text-light);margin-top:2px}
 
-    /* PROBLEM */
-    .problem{
-      background:var(--bg-soft);
-    }
-    .stack{
-      display:grid;
-      gap:14px;
-    }
-    .pain{
-      display:flex;
-      gap:14px;
-      padding:18px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:18px;
-      box-shadow:var(--shadow-xs);
-    }
-    .pain-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      display:grid;
-      place-items:center;
-      flex:0 0 44px;
-    }
-    .pain h3{
-      margin:0 0 4px;
-      font-size:1rem;
-      letter-spacing:-.02em;
-      color:var(--ink);
-    }
-    .pain p{
-      margin:0;
-      font-size:.9rem;
-      color:var(--muted);
-    }
-    .compare{
-      padding:26px;
-    }
-    .compare-grid{
-      display:grid;
-      grid-template-columns:1fr auto 1fr;
-      gap:16px;
-      align-items:center;
-    }
-    .compare-box{
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:18px;
-      background:linear-gradient(180deg,#fff,#fbfcfd);
-    }
-    .compare-box h4{
-      margin:0 0 14px;
-      font-size:.82rem;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
-    .compare-box.before h4{color:#b45309}
-    .compare-box.after h4{color:#047857}
-    .compare-row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:10px 0;
-      border-bottom:1px solid var(--border);
-      font-size:.87rem;
-    }
-    .compare-row:last-child{border-bottom:none}
-    .compare-row span{color:var(--muted)}
-    .compare-row strong{color:var(--ink)}
-    .compare-arrow{
-      width:46px;
-      height:46px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:#fff;
-      display:grid;
-      place-items:center;
-      color:var(--accent);
-    }
+    /* ── FAQ ── */
+    #faq{background:var(--white)}
+    .faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+    .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .25s,box-shadow .25s}
+    .faq-item.open{border-color:var(--accent);box-shadow:0 2px 12px rgba(15,118,110,.06)}
+    .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:none;border:none;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text-dark);text-align:left;gap:14px;transition:color .2s}
+    .faq-q:hover{color:var(--accent)}
+    .faq-chevron{width:18px;height:18px;flex-shrink:0;color:var(--text-light);transition:transform .3s var(--ease),color .3s}
+    .faq-item.open .faq-chevron{transform:rotate(180deg);color:var(--accent)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+    .faq-a-inner{padding:0 22px 18px;font-size:.875rem;color:var(--text-muted);line-height:1.75}
 
-    /* SERVICES */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:22px;
-    }
-    .service{
-      padding:28px;
-      height:100%;
-    }
-    .service-icon{
-      width:52px;
-      height:52px;
-      border-radius:16px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      display:grid;
-      place-items:center;
-      margin-bottom:16px;
-    }
-    .service h3{
-      margin:0 0 8px;
-      font-size:1.15rem;
-      letter-spacing:-.03em;
-      color:var(--ink);
-    }
-    .service p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.8;
-    }
-    .feature-list{
-      display:grid;
-      gap:10px;
-    }
-    .feature-list li{
-      display:flex;
-      gap:10px;
-      color:var(--text);
-      font-size:.9rem;
-    }
-    .feature-list li::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background:var(--accent);
-      margin-top:.45em;
-      flex:0 0 8px;
-    }
+    /* ── Contact CTA ── */
+    #contact{background:var(--bg-teal-dark);color:#fff;overflow:hidden}
+    .contact-shape{position:absolute;border-radius:50%;opacity:.08;background:white}
+    .contact-shape-1{width:400px;height:400px;top:-100px;right:-80px}
+    .contact-shape-2{width:250px;height:250px;bottom:-60px;left:-40px}
+    .contact-inner{position:relative;z-index:1;text-align:center;max-width:600px;margin:0 auto}
+    .contact-inner .section-label{color:rgba(255,255,255,.6)}
+    .contact-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:16px;line-height:1.12;color:#fff}
+    .contact-sub{font-size:1.05rem;color:rgba(255,255,255,.7);margin-bottom:40px;line-height:1.75}
+    .contact-form{display:flex;flex-direction:column;gap:12px;text-align:left;max-width:480px;margin:0 auto}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-label{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:5px;display:block}
+    .form-input{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-sm);padding:13px 16px;font-size:.875rem;color:#fff;font-family:var(--font);transition:all .2s}
+    .form-input:focus{outline:none;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.15)}
+    .form-input::placeholder{color:rgba(255,255,255,.35)}
+    textarea.form-input{resize:vertical;min-height:90px}
+    .form-submit-btn{background:#fff;color:var(--bg-teal-dark);font-weight:700;border:none;border-radius:var(--radius-sm);padding:14px 28px;font-size:.9375rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;width:100%;font-family:var(--font)}
+    .form-submit-btn:hover{background:var(--accent-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+    .form-submit-btn svg{width:16px;height:16px}
 
-    /* PROCESS */
-    .process{
-      background:var(--bg-soft-2);
-    }
-    .timeline{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:22px;
-    }
-    .step{
-      padding:26px;
-      position:relative;
-    }
-    .step-num{
-      width:50px;
-      height:50px;
-      border-radius:16px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      display:grid;
-      place-items:center;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-    .step small{
-      display:block;
-      color:var(--accent);
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      margin-bottom:8px;
-    }
-    .step h3{
-      margin:0 0 8px;
-      font-size:1.06rem;
-      color:var(--ink);
-      letter-spacing:-.03em;
-    }
-    .step p{
-      margin:0;
-      color:var(--muted);
-      font-size:.9rem;
-      line-height:1.75;
-    }
+    /* ── Footer ── */
+    footer{background:#111827;color:rgba(255,255,255,.5);padding:44px 0 28px}
+    .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:36px;flex-wrap:wrap;margin-bottom:36px}
+    .footer-brand{max-width:260px}
+    .footer-logo{font-size:1.05rem;font-weight:800;color:rgba(255,255,255,.85);margin-bottom:10px}
+    .footer-tagline{font-size:.8rem;line-height:1.6}
+    .footer-col h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:14px}
+    .footer-col ul{display:flex;flex-direction:column;gap:8px}
+    .footer-col a{font-size:.82rem;transition:color .2s}
+    .footer-col a:hover{color:var(--accent-hover)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap;gap:14px}
+    .footer-copy{font-size:.75rem}
+    .footer-socials{display:flex;gap:8px}
+    .footer-social{width:34px;height:34px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);transition:all .2s}
+    .footer-social:hover{border-color:var(--accent-hover);color:var(--accent-hover)}
+    .footer-social svg{width:14px;height:14px}
 
-    /* CASE STUDY */
-    .case-study{
-      background:#fff;
-    }
-    .case-wrap{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:28px;
-      align-items:stretch;
-    }
-    .case-main{
-      padding:34px;
-      background:linear-gradient(180deg,#0f172a 0%, #13203d 100%);
-      color:#fff;
-      border-radius:28px;
-      box-shadow:var(--shadow-lg);
-    }
-    .case-tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      color:rgba(255,255,255,.82);
-      font-size:.8rem;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .case-main h3{
-      margin:18px 0 14px;
-      font-size:2rem;
-      line-height:1.08;
-      letter-spacing:-.05em;
-      color:#fff;
-    }
-    .case-main p{
-      margin:0 0 26px;
-      color:rgba(255,255,255,.78);
-      font-size:1rem;
-      line-height:1.8;
-      max-width:640px;
-    }
-    .case-kpis{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-bottom:22px;
-    }
-    .case-kpi{
-      padding:18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-    }
-    .case-kpi strong{
-      display:block;
-      font-size:1.6rem;
-      line-height:1;
-      letter-spacing:-.05em;
-      margin-bottom:8px;
-    }
-    .case-kpi span{
-      color:rgba(255,255,255,.72);
-      font-size:.84rem;
-    }
-    .quote{
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:#fff;
-      font-size:.98rem;
-      line-height:1.8;
-    }
-    .quote cite{
-      display:block;
-      margin-top:12px;
-      color:rgba(255,255,255,.72);
-      font-style:normal;
-      font-size:.88rem;
-      font-weight:600;
-    }
-    .case-side{
-      display:grid;
-      gap:18px;
-    }
-    .side-card{
-      padding:24px;
-    }
-    .side-card h4{
-      margin:0 0 12px;
-      font-size:1rem;
-      letter-spacing:-.02em;
-      color:var(--ink);
-    }
-    .side-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.75;
-    }
-
-    /* ROI */
-    .roi{
-      background:linear-gradient(180deg,#fbfefd 0%, #ffffff 100%);
-    }
-    .roi-wrap{
-      max-width:900px;
-      margin:0 auto;
-      padding:32px;
-    }
-    .roi-inputs{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-      margin-bottom:28px;
-    }
-    .field label{
-      display:block;
-      margin-bottom:10px;
-      color:var(--ink);
-      font-weight:700;
-      font-size:.9rem;
-    }
-    .field-value{
-      margin-bottom:10px;
-      font-size:1.4rem;
-      line-height:1;
-      font-weight:800;
-      color:var(--ink);
-      letter-spacing:-.04em;
-    }
-    .field-value span{
-      font-size:.84rem;
-      color:var(--muted-2);
-      font-weight:600;
-      margin-left:4px;
-    }
-    input[type="range"]{
-      width:100%;
-      appearance:none;
-      height:8px;
-      background:#e7edf4;
-      border-radius:999px;
-      outline:none;
-    }
-    input[type="range"]::-webkit-slider-thumb{
-      appearance:none;
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      background:var(--accent);
-      box-shadow:0 4px 14px rgba(15,118,110,.24);
-      border:none;
-    }
-    input[type="range"]::-moz-range-thumb{
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      background:var(--accent);
-      border:none;
-    }
-    .range-scale{
-      display:flex;
-      justify-content:space-between;
-      margin-top:8px;
-      color:var(--muted-2);
-      font-size:.72rem;
-      font-weight:600;
-    }
-    .roi-results{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:28px;
-    }
-    .roi-result{
-      padding:22px;
-      border:1px solid var(--border);
-      border-radius:20px;
-      background:#fff;
-      text-align:center;
-    }
-    .roi-result strong{
-      display:block;
-      font-size:2rem;
-      line-height:1;
-      letter-spacing:-.05em;
-      color:var(--accent);
-      margin-bottom:8px;
-    }
-    .roi-result span{
-      color:var(--muted);
-      font-size:.85rem;
-    }
-    .roi-note{
-      margin-top:16px;
-      text-align:center;
-      color:var(--muted-2);
-      font-size:.8rem;
-    }
-
-    /* CONTACT */
-    .contact{
-      background:#0f172a;
-      color:#fff;
-      overflow:hidden;
-    }
-    .contact::before,
-    .contact::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,.05);
-      filter:blur(8px);
-      pointer-events:none;
-    }
-    .contact::before{
-      width:280px;
-      height:280px;
-      right:-60px;
-      top:-60px;
-    }
-    .contact::after{
-      width:220px;
-      height:220px;
-      left:-40px;
-      bottom:-60px;
-    }
-    .contact-grid{
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:28px;
-      align-items:start;
-      position:relative;
-      z-index:1;
-    }
-    .contact-intro{
-      padding-top:12px;
-    }
-    .contact .section-label{color:#8ddad2}
-    .contact h2{
-      margin:0 0 14px;
-      font-size:clamp(2rem, 4vw, 3rem);
-      line-height:1.06;
-      letter-spacing:-.05em;
-      color:#fff;
-    }
-    .contact p{
-      color:rgba(255,255,255,.75);
-      line-height:1.85;
-      margin:0 0 26px;
-      font-size:1rem;
-    }
-    .contact-points{
-      display:grid;
-      gap:12px;
-      margin-bottom:28px;
-    }
-    .contact-points li{
-      display:flex;
-      gap:12px;
-      color:rgba(255,255,255,.84);
-      font-size:.92rem;
-    }
-    .contact-points li::before{
-      content:"";
-      width:8px;
-      height:8px;
-      margin-top:.5em;
-      border-radius:999px;
-      background:#5eead4;
-      flex:0 0 8px;
-    }
-
-    .contact-cards{
-      display:grid;
-      gap:18px;
-    }
-    .contact-card{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:24px;
-      padding:24px;
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-    }
-    .contact-card h3{
-      margin:0 0 8px;
-      color:#fff;
-      font-size:1.08rem;
-      letter-spacing:-.03em;
-    }
-    .contact-card > p{
-      margin:0 0 18px;
-      color:rgba(255,255,255,.68);
-      font-size:.92rem;
-      line-height:1.75;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    .field-group{display:grid;gap:8px}
-    .field-group.full{grid-column:1 / -1}
-    .field-group label{
-      font-size:.82rem;
-      color:rgba(255,255,255,.84);
-      font-weight:700;
-    }
-    .input{
-      width:100%;
-      min-height:50px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      padding:0 14px;
-      transition:border-color .2s ease, background .2s ease;
-    }
-    .input::placeholder{color:rgba(255,255,255,.36)}
-    .input:focus{
-      border-color:rgba(255,255,255,.3);
-      background:rgba(255,255,255,.11);
-      outline:none;
-    }
-    textarea.input{
-      min-height:120px;
-      padding:14px;
-      resize:vertical;
-    }
-    .form-actions{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-    .form-meta{
-      font-size:.8rem;
-      color:rgba(255,255,255,.55);
-      line-height:1.7;
-      margin-top:10px;
-    }
-    .form-status{
-      min-height:24px;
-      margin-top:12px;
-      font-size:.88rem;
-      font-weight:600;
-    }
-    .form-status.success{color:#99f6e4}
-    .form-status.error{color:#fecaca}
-
-    /* FAQ */
-    .faq-list{
-      max-width:860px;
-      margin:0 auto;
-      display:grid;
-      gap:12px;
-    }
-    .faq-item{
-      border:1px solid var(--border);
-      border-radius:20px;
-      background:#fff;
-      box-shadow:var(--shadow-xs);
-      overflow:hidden;
-    }
-    .faq-button{
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      text-align:left;
-      background:none;
-      border:none;
-      padding:20px 22px;
-      color:var(--ink);
-      font-size:1rem;
-      font-weight:700;
-    }
-    .faq-button svg{
-      width:18px;
-      height:18px;
-      flex:0 0 18px;
-      transition:transform .2s ease;
-      color:var(--muted);
-    }
-    .faq-item.open .faq-button svg{transform:rotate(180deg)}
-    .faq-panel{
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .25s ease;
-    }
-    .faq-panel-inner{
-      padding:0 22px 20px;
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.85;
-    }
-
-    /* FOOTER */
-    .footer{
-      padding:34px 0 42px;
-      background:#0b1220;
-      color:rgba(255,255,255,.6);
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr .9fr .9fr;
-      gap:24px;
-      margin-bottom:24px;
-    }
-    .footer-brand h3{
-      margin:0 0 10px;
-      color:#fff;
-      font-size:1.15rem;
-      letter-spacing:-.03em;
-    }
-    .footer p{
-      margin:0;
-      font-size:.9rem;
-      line-height:1.8;
-    }
-    .footer-col h4{
-      margin:0 0 12px;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      color:rgba(255,255,255,.4);
-    }
-    .footer-col ul{
-      display:grid;
-      gap:10px;
-    }
-    .footer-col a{
-      color:rgba(255,255,255,.7);
-      font-size:.9rem;
-    }
-    .footer-col a:hover{color:#fff}
-    .footer-bottom{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding-top:22px;
-      border-top:1px solid rgba(255,255,255,.08);
-      font-size:.84rem;
-    }
-
-    /* REVEAL */
-    .reveal{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .55s var(--ease), transform .55s var(--ease);
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1080px){
-      .hero-grid,
-      .case-wrap,
-      .contact-grid,
-      .two-col{
-        grid-template-columns:1fr;
-      }
-      .timeline{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-      .hero-copy{
-        max-width:none;
-      }
-    }
-
-    @media (max-width: 900px){
-      .nav-inner{
-        grid-template-columns:auto 1fr auto;
-      }
-      .nav-cta{display:none}
-      .nav-toggle{display:grid;place-items:center}
-      .nav-links{
-        position:fixed;
-        top:calc(var(--nav-h) + 10px);
-        left:20px;
-        right:20px;
-        display:grid;
-        gap:6px;
-        padding:14px;
-        border-radius:22px;
-        background:#fff;
-        border:1px solid var(--border);
-        box-shadow:var(--shadow-lg);
-        transform:translateY(-12px);
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
-        transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
-        z-index:1080;
-      }
-      .nav-links.open{
-        opacity:1;
-        visibility:visible;
-        pointer-events:auto;
-        transform:translateY(0);
-      }
-      .nav-links a{
-        padding:14px 12px;
-        border-radius:14px;
-        color:var(--ink);
-      }
-      .nav-links a:hover{
-        background:var(--bg-soft);
-      }
-
-      .hero-proof,
-      .roi-inputs,
-      .roi-results,
-      .case-kpis,
-      .services-grid{
-        grid-template-columns:1fr;
-      }
-      .compare-grid{
-        grid-template-columns:1fr;
-      }
-      .compare-arrow{justify-self:center;transform:rotate(90deg)}
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media (max-width: 680px){
-      .section{padding:76px 0}
-      .hero{padding-top:calc(var(--nav-h) + 24px)}
+    /* ── Responsive ── */
+    @media(max-width:1024px){
+      .hero-grid{grid-template-columns:1fr;text-align:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-actions{justify-content:center}
+      .hero-stats{justify-content:center}
+      .hero-visual{margin-top:40px}
+      .services-grid,.results-grid,.test-grid{grid-template-columns:1fr 1fr}
+      .timeline{grid-template-columns:1fr 1fr}
+      .timeline::before{display:none}
+      .calc-inputs{grid-template-columns:1fr}
+    }
+    @media(max-width:768px){
+      section{padding:64px 0}
+      .nav-links{position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);flex-direction:column;align-items:center;justify-content:center;gap:24px;z-index:1001;opacity:0;pointer-events:none;transition:opacity .3s}
+      .nav-links.open{opacity:1;pointer-events:all}
+      .nav-links.open~.mobile-close-wrap .mobile-close{display:flex;position:fixed;top:20px;right:20px;z-index:1002}
+      .nav-links a{font-size:1.2rem;color:var(--text-dark)}
+      .nav-toggle{display:flex}
+      .nav-cta-btn{display:none}
+      .hero-grid{gap:32px}
       .hero-actions{flex-direction:column;align-items:stretch}
-      .hero-actions .btn{width:100%}
-      .proof-stat{padding:16px}
-      .form-grid{grid-template-columns:1fr}
+      .hero-actions .btn{justify-content:center}
+      .hero-stats{gap:28px}
+      .problem-grid,.about-grid{grid-template-columns:1fr;gap:36px}
+      .services-grid,.results-grid,.test-grid{grid-template-columns:1fr}
       .timeline{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-      .footer-bottom{flex-direction:column}
-      .container{width:min(var(--container), calc(100% - 24px))}
-      .nav-inner{width:min(var(--container), calc(100% - 24px))}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *, *::before, *::after{
-        animation:none !important;
-        transition:none !important;
-      }
-      .reveal{
-        opacity:1 !important;
-        transform:none !important;
-      }
+      .calc-results{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .calc-wrap{padding:28px 20px}
+      .footer-grid{flex-direction:column}
+      .footer-bottom{flex-direction:column;text-align:center}
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
-
-  <header class="nav" id="site-nav">
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Sagent-AI home">
-        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-          <rect width="40" height="40" rx="11" fill="#0f766e"/>
-          <path d="M26 12H17C14.8 12 13 13.8 13 16C13 18.2 14.8 20 17 20H23C25.2 20 27 21.8 27 24C27 26.2 25.2 28 23 28H14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/>
-          <circle cx="26" cy="12" r="2.1" fill="#fff"/>
-          <circle cx="14" cy="28" r="2.1" fill="#fff"/>
-          <circle cx="20" cy="20" r="2.1" fill="#fff"/>
+      <a href="#hero" class="nav-logo" aria-label="Sagent-AI home">
+        <svg viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="9" fill="#0f766e"/>
+          <!-- Circuit-board style S path -->
+          <path d="M26 12H17C14.8 12 13 13.8 13 16V16C13 18.2 14.8 20 17 20H23C25.2 20 27 21.8 27 24V24C27 26.2 25.2 28 23 28H14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/>
+          <!-- Circuit nodes -->
+          <circle cx="26" cy="12" r="2.2" fill="#fff"/>
+          <circle cx="14" cy="28" r="2.2" fill="#fff"/>
+          <circle cx="20" cy="20" r="2.2" fill="#fff"/>
         </svg>
-        <span class="brand-wordmark">Sagent<span>-AI</span></span>
+        Sagent<span class="logo-accent">-AI</span>
       </a>
-
-      <nav aria-label="Primary">
-        <div class="nav-links" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Mobile navigation">
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#case-study">Case Study</a>
-          <a href="#calculator">ROI</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact" class="btn btn-primary" style="margin-top:6px;">Book a Strategy Call</a>
-        </div>
-      </nav>
-
-      <a href="#contact" class="btn btn-primary nav-cta">Book a Strategy Call</a>
-
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-controls="mobile-nav"
-        aria-expanded="false"
-        aria-label="Open menu"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="4" y1="7" x2="20" y2="7"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="17" x2="20" y2="17"></line>
-        </svg>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta-btn">Book a Free Call</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
+      <div class="mobile-close-wrap">
+        <button class="mobile-close" id="nav-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <div class="eyebrow">AI systems for people-heavy teams</div>
-            <h1 class="hero-title">
-              Reduce repetitive work.<br />
-              Improve consistency.<br />
-              <span class="accent">Keep your team focused on high-value work.</span>
-            </h1>
-            <p class="hero-sub">
-              Sagent-AI designs practical AI workflows for operations, legal, healthcare, insurance,
-              and administrative teams that need better output, faster execution, and safer adoption
-              without a headcount-reduction agenda.
-            </p>
-
-            <div class="hero-actions">
-              <button class="btn btn-primary" id="book-call-hero">
-                Book a Strategy Call
-                <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 8h10M9 4l4 4-4 4"></path>
-                </svg>
-              </button>
-              <a class="btn btn-secondary" href="#case-study">See a Case Study</a>
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge reveal"><span class="hero-badge-dot"></span>AI-Augmented Teams, Not AI-Replaced Teams</div>
+          <h1 class="hero-headline reveal d1">Stop Firing your Team<br>Empower them to do in a day<span class="accent-text">what they could in a week.</span></h1>
+          <p class="hero-sub reveal d2">We help people-heavy teams use AI to streamline workflows and delegate routine tasks, maximizing human potential without replacing anyone.</p>
+          <div class="hero-actions reveal d3">
+            <a href="#process" class="btn btn-primary btn-large">
+              See How It Works
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a href="#results" class="btn btn-secondary btn-large">View Results</a>
+          </div>
+          <div class="hero-stats reveal d4">
+            <div>
+              <div class="hero-stat-number" data-count="2400">0</div>
+              <div class="hero-stat-label">Hours freed per team annually</div>
             </div>
-
-            <div class="hero-proof" aria-label="Key proof points">
-              <div class="proof-stat">
-                <strong>65%+</strong>
-                <span>Typical reduction in repetitive task time across structured workflows</span>
-              </div>
-              <div class="proof-stat">
-                <strong>8 weeks</strong>
-                <span>From audit to first production-ready implementation in a typical engagement</span>
-              </div>
-              <div class="proof-stat">
-                <strong>People-first</strong>
-                <span>Designed to augment teams with review checkpoints and adoption support</span>
-              </div>
+            <div>
+              <div class="hero-stat-number" data-count="67" data-suffix="%">0</div>
+              <div class="hero-stat-label">Avg. reduction in repetitive tasks</div>
+            </div>
+            <div>
+              <div class="hero-stat-number" data-count="0" data-static="0">0</div>
+              <div class="hero-stat-label">Employees replaced. Ever.</div>
             </div>
           </div>
-
-          <div class="hero-panel reveal">
-            <div class="hero-frame" aria-hidden="true">
-              <div class="hero-topbar">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-              <div class="hero-visual">
-                <div class="visual-card">
-                  <div class="visual-label">Engagement snapshot</div>
-                  <h2 class="visual-title">Operations workflow modernization</h2>
-                  <div class="mini-bars">
-                    <div class="bar-wrap">
-                      <div class="bar-label"><span>Manual reporting time</span><strong>-72%</strong></div>
-                      <div class="bar"><span style="width:72%"></span></div>
-                    </div>
-                    <div class="bar-wrap">
-                      <div class="bar-label"><span>QA consistency</span><strong>94%</strong></div>
-                      <div class="bar"><span style="width:94%"></span></div>
-                    </div>
-                    <div class="bar-wrap">
-                      <div class="bar-label"><span>Team adoption</span><strong>4.8/5</strong></div>
-                      <div class="bar"><span style="width:96%"></span></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="visual-card">
-                  <div class="visual-label">Delivery model</div>
-                  <div class="metric-list">
-                    <div class="metric">
-                      <span>Discover</span>
-                      <strong>Workflow audit + stakeholder interviews</strong>
-                    </div>
-                    <div class="metric">
-                      <span>Design</span>
-                      <strong>Human review points + success metrics</strong>
-                    </div>
-                    <div class="metric">
-                      <span>Deploy</span>
-                      <strong>Training, rollout, optimization</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="visual-card">
-                  <div class="visual-label">Best-fit teams</div>
-                  <div class="metric-list">
-                    <div class="metric"><span>Insurance & claims</span><strong>High-volume admin</strong></div>
-                    <div class="metric"><span>Legal & contracts</span><strong>Structured review</strong></div>
-                    <div class="metric"><span>Healthcare admin</span><strong>Process-heavy operations</strong></div>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="hero-visual reveal from-right">
+          <div class="hero-shape hero-shape-1"></div>
+          <div class="hero-shape hero-shape-2"></div>
+          <div class="hero-shape hero-shape-3"></div>
+          <div class="hero-cards">
+            <div class="hero-card">
+              <div class="hero-card-label">Weekly Team Report</div>
+              <div class="hero-card-value">23.5 hrs saved</div>
+              <div class="hero-card-desc">Across 25 team members this week</div>
+              <div class="hero-card-bar"><div class="hero-card-bar-fill" style="--fill:78%"></div></div>
+            </div>
+            <div class="hero-card card-accent-indigo">
+              <div class="hero-card-label">Output Quality</div>
+              <div class="hero-card-row"><span class="hero-card-metric">Consistency score</span><span class="hero-card-metric-val">94%</span></div>
+              <div class="hero-card-row"><span class="hero-card-metric">Error rate</span><span class="hero-card-metric-val">&#x2193; 71%</span></div>
+              <div class="hero-card-row"><span class="hero-card-metric">Team satisfaction</span><span class="hero-card-metric-val">4.8/5</span></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="trust" aria-label="Industries served">
-      <div class="container">
-        <div class="trust-row">
-          <span class="label">Built for teams in</span>
-          <span class="trust-chip">Insurance</span>
-          <span class="trust-chip">Legal</span>
-          <span class="trust-chip">Healthcare Administration</span>
-          <span class="trust-chip">Professional Services</span>
-          <span class="trust-chip">Operations</span>
-          <span class="trust-chip">Finance</span>
+  <!-- ─── TRUST BAR ─── -->
+  <div id="trust">
+    <div class="container">
+      <div class="trust-inner">
+        <span class="trust-label">Trusted by teams in</span>
+        <div class="trust-logos">
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>Finance</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>Insurance</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/><path d="M9 12l2 2 4-4"/></svg>Legal</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Healthcare</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg>Professional Services</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Operations</span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="section problem" id="problem">
-      <div class="container">
-        <div class="two-col">
-          <div class="reveal">
-            <div class="section-label">The Problem</div>
-            <h2 class="section-title">Your best people are still spending too much time on repeatable work.</h2>
-            <p class="section-sub" style="margin:0 0 28px;max-width:unset;text-align:left;">
-              Most teams do not need more AI tools. They need clearer workflows, better handoffs,
-              safer review points, and practical implementation that people will actually use.
-            </p>
-
-            <div class="stack">
-              <div class="pain">
-                <div class="pain-icon">⏱️</div>
-                <div>
-                  <h3>Hours lost to repetitive admin</h3>
-                  <p>Work that should be standardized still depends on manual copying, reformatting, and follow-up.</p>
-                </div>
-              </div>
-              <div class="pain">
-                <div class="pain-icon">⚠️</div>
-                <div>
-                  <h3>Inconsistent output quality</h3>
-                  <p>Results vary by team member, time pressure, and process discipline.</p>
-                </div>
-              </div>
-              <div class="pain">
-                <div class="pain-icon">🔐</div>
-                <div>
-                  <h3>Knowledge trapped in people and inboxes</h3>
-                  <p>New hires ramp slowly because the best operating knowledge is not systematized.</p>
-                </div>
-              </div>
-              <div class="pain">
-                <div class="pain-icon">🔄</div>
-                <div>
-                  <h3>Too many tools, not enough adoption</h3>
-                  <p>Teams get new software, but not the workflow redesign and change support needed to make it stick.</p>
-                </div>
-              </div>
+  <!-- ─── PROBLEM ─── -->
+  <section id="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-text reveal">
+          <p class="section-label">The Problem</p>
+          <h2 class="section-title">Your team is spending too much time on work that doesn't use their talent.</h2>
+          <p class="section-sub" style="margin-bottom:0">AI capability is advancing exponentially, but it still struggles with long-term execution, context overload, and genuine creativity. We help teams apply AI in the right places to streamline workflows, eliminate busywork, and amplify human talent rather than replace it.</p>
+          <div class="pain-list">
+            <div class="pain-item reveal d1">
+              <div class="pain-icon">&#9200;</div>
+              <div><h4>Hours lost to tedious repetitive "busy work"</h4><p>Your best people spend their days on work that doesn't use their expertise.</p></div>
+            </div>
+            <div class="pain-item reveal d2">
+              <div class="pain-icon">&#9888;&#65039;</div>
+              <div><h4>Inconsistent quality across team members</h4><p>Output varies wildly depending on who does the work and when.</p></div>
+            </div>
+            <div class="pain-item reveal d3">
+              <div class="pain-icon">&#128274;</div>
+              <div><h4>Institutional knowledge trapped in inboxes</h4><p>Critical know-how lives in a few people's heads — a single point of failure.</p></div>
+            </div>
+            <div class="pain-item reveal d4">
+              <div class="pain-icon">&#128260;</div>
+              <div><h4>New hire ramp-up takes months</h4><p>Every new person reinvents the wheel because there's no system to learn from.</p></div>
             </div>
           </div>
-
-          <div class="card compare reveal">
-            <div class="compare-grid">
-              <div class="compare-box before">
-                <h4>Before</h4>
-                <div class="compare-row"><span>Weekly report prep</span><strong>8 hrs/person</strong></div>
-                <div class="compare-row"><span>Quality consistency</span><strong>62%</strong></div>
-                <div class="compare-row"><span>Ramp-up time</span><strong>12+ weeks</strong></div>
-                <div class="compare-row"><span>Team satisfaction</span><strong>54%</strong></div>
-              </div>
-
-              <div class="compare-arrow">→</div>
-
-              <div class="compare-box after">
-                <h4>After</h4>
-                <div class="compare-row"><span>Weekly report prep</span><strong>45 min/person</strong></div>
-                <div class="compare-row"><span>Quality consistency</span><strong>94%</strong></div>
-                <div class="compare-row"><span>Ramp-up time</span><strong>3 weeks</strong></div>
-                <div class="compare-row"><span>Team satisfaction</span><strong>87%</strong></div>
-              </div>
-            </div>
+        </div>
+        <div class="transform-cards">
+          <div class="transform-card reveal from-right d1">
+            <div class="transform-label before"><span class="dot"></span> Before Sagent-AI</div>
+            <div class="transform-row"><span class="transform-metric">Weekly report generation</span><span class="transform-value bad">8 hrs/person</span></div>
+            <div class="transform-row"><span class="transform-metric">Document quality score</span><span class="transform-value bad">62%</span></div>
+            <div class="transform-row"><span class="transform-metric">New hire productivity</span><span class="transform-value bad">12+ weeks</span></div>
+            <div class="transform-row"><span class="transform-metric">Team satisfaction</span><span class="transform-value bad">54%</span></div>
+          </div>
+          <div class="transform-arrow reveal from-right d2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </div>
+          <div class="transform-card reveal from-right d3">
+            <div class="transform-label after"><span class="dot"></span> After Sagent-AI</div>
+            <div class="transform-row"><span class="transform-metric">Weekly report generation</span><span class="transform-value good">45 min/person</span></div>
+            <div class="transform-row"><span class="transform-metric">Document quality score</span><span class="transform-value good">94%</span></div>
+            <div class="transform-row"><span class="transform-metric">New hire productivity</span><span class="transform-value good">3 weeks</span></div>
+            <div class="transform-row"><span class="transform-metric">Team satisfaction</span><span class="transform-value good">87%</span></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">What We Do</div>
-          <h2 class="section-title">Two systems for <span class="accent">higher-output teams</span></h2>
-          <p class="section-sub">
-            We combine workflow automation with team enablement so AI becomes part of how work actually gets done,
-            not just another tool sitting on the shelf.
-          </p>
+  <!-- ─── SERVICES ─── -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Dual Framework Model to make your team more effective <span class="accent-text">more effective</span></h2>
+        <p class="section-sub">By combining AI efficiency with human ingenuity, our team of expert practitioners brings cutting-edge implementations and best practices from industry leaders and top U.S. universities directly to your organization.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal d1">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3 class="service-title">Workflow Automation</h3>
+          <p class="service-desc">Identify and outsource the repetitive tasks draining your team's time. We build custom AI workflows that handle the tedious work, so your team can focus on high-value thinking and execution.</p>
+          <ul class="service-features"><li>Custom workflow mapping &amp; design</li><li>AI-driven routing with human review points</li><li>Smart routing with human checkpoints</li><li>Performance tracking dashboards</li></ul>
         </div>
-
-        <div class="services-grid">
-          <article class="card service reveal">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 12h5l2-7 4 14 2-7h3"></path>
-              </svg>
-            </div>
-            <h3>Workflow Automation</h3>
-            <p>
-              We identify the repetitive work that creates drag, map the actual process, and build practical AI-assisted
-              systems with human review points where judgment still matters.
-            </p>
-            <ul class="feature-list">
-              <li>Workflow audit and opportunity mapping</li>
-              <li>AI-assisted routing, drafting, summarization, and QA</li>
-              <li>Human-in-the-loop review checkpoints</li>
-              <li>Performance tracking and iteration</li>
-            </ul>
-          </article>
-
-          <article class="card service reveal">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3>Team AI Enablement</h3>
-            <p>
-              Adoption is where most AI efforts fail. We help your team understand when to use AI, how to review outputs,
-              and how to integrate new workflows without unnecessary friction.
-            </p>
-            <ul class="feature-list">
-              <li>Role-based training and rollout support</li>
-              <li>Operating guidelines and QA standards</li>
-              <li>Tool selection aligned to your current stack</li>
-              <li>Optimization based on real usage</li>
-            </ul>
-          </article>
+        <div class="service-card reveal d4">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3 class="service-title">Team AI Enablement</h3>
+          <p class="service-desc">The most advanced and expensive AI tools fail without adoption. Value is created when your team works alongside AI with knowledge and creativity. We train your team to work alongside AI by building trust, reducing friction, and maximizing lasting ROI.</p>
+          <ul class="service-features"><li>Role-specific AI training</li><li>Change management support</li><li>Tool selection &amp; integration</li><li>Ongoing coaching &amp; optimization</li></ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section process" id="process">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">Process</div>
-          <h2 class="section-title">From workflow audit to first impact in <span class="accent">8 weeks</span></h2>
-          <p class="section-sub">
-            The goal is not to install AI everywhere. It is to target the right workflows, implement safely,
-            and give the team a system they will actually trust and use.
-          </p>
+  <!-- ─── HOW IT WORKS ─── -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">From audit to impact in <span class="accent-text">8 weeks</span></h2>
+        <p class="section-sub">AI has changed the world because we are now on an unparalleled exponential trajectory of increasing innovation and progress. Organizations that adapt early will be best positioned to create lasting transformation and achieve their boldest objectives.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-step reveal d1">
+          <div class="step-num">01</div>
+          <p class="step-duration">Week 1–2</p>
+          <h3 class="step-title">Discover</h3>
+          <p class="step-desc">We audit your team's workflows, interview key people, then analyze your current AI strategy, and identify the highest-value opportunities where AI can make the biggest immediate difference.</p>
         </div>
-
-        <div class="timeline">
-          <article class="card step reveal">
-            <div class="step-num">01</div>
-            <small>Week 1–2</small>
-            <h3>Discover</h3>
-            <p>Audit workflows, interview stakeholders, identify repetitive work, risk areas, and quality bottlenecks.</p>
-          </article>
-
-          <article class="card step reveal">
-            <div class="step-num">02</div>
-            <small>Week 3–4</small>
-            <h3>Design</h3>
-            <p>Define target workflows, human review points, metrics, tool choices, and rollout plan.</p>
-          </article>
-
-          <article class="card step reveal">
-            <div class="step-num">03</div>
-            <small>Week 5–8</small>
-            <h3>Deploy</h3>
-            <p>Implement workflows, test against real work, train the team, and launch the first operating version.</p>
-          </article>
-
-          <article class="card step reveal">
-            <div class="step-num">04</div>
-            <small>Ongoing</small>
-            <h3>Optimize</h3>
-            <p>Track adoption, time savings, quality gains, and refine the system as team usage matures.</p>
-          </article>
+        <div class="tl-step reveal d2">
+          <div class="step-num">02</div>
+          <p class="step-duration">Week 3–4</p>
+          <h3 class="step-title">Design</h3>
+          <p class="step-desc">We design a custom solution tailored to your actual workflows. We recommend the best tools, the optimal and safe implementation, and your people are involved from day one so the solution fits how they work.</p>
+        </div>
+        <div class="tl-step reveal d3">
+          <div class="step-num">03</div>
+          <p class="step-duration">Week 5–8</p>
+          <h3 class="step-title">Deploy</h3>
+          <p class="step-desc">We implement alongside your team, handling all technical complexity while training your people at every step. Results start appearing within the first week of use.</p>
+        </div>
+        <div class="tl-step reveal d4">
+          <div class="step-num">04</div>
+          <p class="step-duration">Ongoing</p>
+          <h3 class="step-title">Sustain</h3>
+          <p class="step-desc">We measure outcomes, refine the system, and provide ongoing support so your team keeps improving. Results compound as the system learns and your team gains confidence.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section case-study" id="case-study">
-      <div class="container">
-        <div class="case-wrap">
-          <article class="case-main reveal">
-            <div class="case-tag">Featured case study · Insurance operations</div>
-            <h3>A 30-person claims team cut reporting time, improved consistency, and reclaimed capacity.</h3>
-            <p>
-              Sagent-AI redesigned a recurring reporting and review workflow that relied on manual gathering,
-              formatting, and handoff coordination. The new system standardized intake, drafted reports,
-              flagged exceptions, and preserved human review on critical decisions.
-            </p>
-
-            <div class="case-kpis">
-              <div class="case-kpi">
-                <strong>-89%</strong>
-                <span>Report generation time</span>
-              </div>
-              <div class="case-kpi">
-                <strong>3,480</strong>
-                <span>Hours freed annually</span>
-              </div>
-              <div class="case-kpi">
-                <strong>$174k</strong>
-                <span>Estimated annual savings</span>
-              </div>
-            </div>
-
-            <div class="quote">
-              “Our team now spends time actually helping customers instead of filling out the same materials over and over.
-              Morale is up, and the process is more consistent than it used to be.”
-              <cite>VP of Claims Operations</cite>
-            </div>
-          </article>
-
-          <div class="case-side">
-            <article class="card side-card reveal">
-              <h4>What changed</h4>
-              <p>
-                Manual collection steps were consolidated, repetitive writing tasks were drafted automatically,
-                and QA checkpoints were made explicit instead of depending on tribal knowledge.
-              </p>
-            </article>
-
-            <article class="card side-card reveal">
-              <h4>Why it worked</h4>
-              <p>
-                The workflow matched how the team already operated. That meant less resistance, faster adoption,
-                and better day-one usability than a tool-first rollout.
-              </p>
-            </article>
-
-            <article class="card side-card reveal">
-              <h4>What the client got</h4>
-              <p>
-                A workflow audit, implementation roadmap, production-ready operating flow, training sessions,
-                and a measurable outcomes dashboard for ongoing review.
-              </p>
-            </article>
+  <!-- ─── RESULTS ─── -->
+  <section id="results">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Results</p>
+        <h2 class="section-title">Real outcomes. <span class="accent-text">Real teams.</span></h2>
+        <p class="section-sub">Estimates show that the numbers that matter to your CFO, your operations lead, and your employees are optimized with AI.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card reveal d1">
+          <div class="result-industry">Insurance</div>
+          <p class="result-team">30-person claims processing team</p>
+          <div class="result-metrics">
+            <div class="metric-row"><span class="metric-label">Report generation time</span><span class="metric-val teal">-89%</span></div>
+            <div class="metric-row"><span class="metric-label">Hours freed annually</span><span class="metric-val teal">3,480 hrs</span></div>
+            <div class="metric-row"><span class="metric-label">Annual cost savings</span><span class="metric-val green">$174,000</span></div>
+            <div class="metric-row"><span class="metric-label">Employee satisfaction</span><span class="metric-val indigo">+33%</span></div>
           </div>
+          <div class="result-quote">"Our team now spends time actually helping customers, not filling out forms. Morale is up, and we process claims faster than ever."<div class="result-author">— VP of Claims Operations</div></div>
+        </div>
+        <div class="result-card reveal d2">
+          <div class="result-industry">Legal Services</div>
+          <p class="result-team">12-person mid-size law firm</p>
+          <div class="result-metrics">
+            <div class="metric-row"><span class="metric-label">Contract review time</span><span class="metric-val teal">-65%</span></div>
+            <div class="metric-row"><span class="metric-label">Document accuracy</span><span class="metric-val teal">94%&#x2192;99.2%</span></div>
+            <div class="metric-row"><span class="metric-label">Partner time reclaimed</span><span class="metric-val green">12 hrs/wk</span></div>
+            <div class="metric-row"><span class="metric-label">Client satisfaction</span><span class="metric-val indigo">+28%</span></div>
+          </div>
+          <div class="result-quote">"Our associates spend time on strategy and client relationships now — not formatting contracts. It's transformed how we operate."<div class="result-author">— Managing Partner</div></div>
+        </div>
+        <div class="result-card reveal d3">
+          <div class="result-industry">Healthcare Admin</div>
+          <p class="result-team">80-person administrative team</p>
+          <div class="result-metrics">
+            <div class="metric-row"><span class="metric-label">Onboarding time</span><span class="metric-val teal">6 wks &#x2192; 3 wks</span></div>
+            <div class="metric-row"><span class="metric-label">Ticket resolution speed</span><span class="metric-val teal">3&#x00D7; faster</span></div>
+            <div class="metric-row"><span class="metric-label">Annual time savings</span><span class="metric-val green">9,600 hrs</span></div>
+            <div class="metric-row"><span class="metric-label">Staff satisfaction</span><span class="metric-val indigo">+31%</span></div>
+          </div>
+          <div class="result-quote">"Staff are no longer frustrated by repetitive admin work. The AI handles the routine pieces so our team can focus on patients."<div class="result-author">— Director of Operations</div></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section roi" id="calculator">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">ROI Calculator</div>
-          <h2 class="section-title">Estimate what better workflows could <span class="accent">free up</span></h2>
-          <p class="section-sub">
-            Adjust the values below for your team. This estimate assumes a 65% reduction in repetitive task time.
-          </p>
+  <!-- ─── TESTIMONIALS ─── -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Testimonials</p>
+        <h2 class="section-title">What our clients <span class="accent-text">actually say</span></h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card reveal d1">
+          <div class="test-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg></div>
+          <p class="test-text">"I was worried AI would make my team feel threatened. Sagent-AI did the opposite — my people are relieved. They finally have time to do the work they were actually hired to do."</p>
+          <div class="test-author"><div class="test-avatar">SL</div><div><div class="test-name">Sarah Lawson</div><div class="test-role">COO, Regional Insurance Group</div></div></div>
         </div>
-
-        <div class="card roi-wrap reveal">
-          <div class="roi-inputs">
-            <div class="field">
-              <label for="calc-team">Team size</label>
-              <div class="field-value"><span id="team-val">25</span><span>people</span></div>
-              <input id="calc-team" type="range" min="5" max="200" step="1" value="25" />
-              <div class="range-scale"><span>5</span><span>200</span></div>
-            </div>
-
-            <div class="field">
-              <label for="calc-hours">Hours/week on repetitive work (per person)</label>
-              <div class="field-value"><span id="hours-val">15</span><span>hrs/wk</span></div>
-              <input id="calc-hours" type="range" min="2" max="40" step="1" value="15" />
-              <div class="range-scale"><span>2</span><span>40</span></div>
-            </div>
-
-            <div class="field">
-              <label for="calc-rate">Average hourly employee cost</label>
-              <div class="field-value">$<span id="rate-val">45</span><span>/hr</span></div>
-              <input id="calc-rate" type="range" min="20" max="150" step="5" value="45" />
-              <div class="range-scale"><span>$20</span><span>$150</span></div>
-            </div>
-          </div>
-
-          <div class="roi-results">
-            <div class="roi-result">
-              <strong id="calc-hours-saved">11,700</strong>
-              <span>Hours saved per year</span>
-            </div>
-            <div class="roi-result">
-              <strong id="calc-dollars-saved">$526,500</strong>
-              <span>Estimated annual savings</span>
-            </div>
-            <div class="roi-result">
-              <strong id="calc-weeks-freed">293</strong>
-              <span>Work-weeks freed up</span>
-            </div>
-          </div>
-
-          <div class="roi-note">
-            Based on a 65% average reduction in repetitive task time and 48 working weeks per year.
-          </div>
+        <div class="test-card reveal d2">
+          <div class="test-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg></div>
+          <p class="test-text">"The ROI was obvious within 30 days. But what surprised me most was how excited the team got. They went from skeptics to advocates — because the AI genuinely made their jobs better."</p>
+          <div class="test-author"><div class="test-avatar">MR</div><div><div class="test-name">Marcus Rivera</div><div class="test-role">VP of Operations, FinServ Holdings</div></div></div>
+        </div>
+        <div class="test-card reveal d3">
+          <div class="test-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.17H19l-5.31 4.06L15.78 18 10 13.94 4.22 18l2.09-6.77L1 7.17h6.61z"/></svg></div>
+          <p class="test-text">"Other consultants pitched us dashboards nobody wanted. Sagent-AI actually sat with our team, understood the pain, and built something people use every single day. That's rare."</p>
+          <div class="test-author"><div class="test-avatar">JP</div><div><div class="test-name">Jennifer Park</div><div class="test-role">Director of Admin, MedCare Systems</div></div></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">FAQ</div>
-          <h2 class="section-title">Questions buyers usually ask before a first call</h2>
+  <!-- ─── ROI CALCULATOR ─── -->
+  <section id="calculator">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">ROI Calculator</p>
+        <h2 class="section-title">See what AI could <span class="accent-text">save your team</span></h2>
+        <p class="section-sub">Adjust the sliders below based on your team. Results update instantly based on our average client outcomes.</p>
+      </div>
+      <div class="calc-wrap reveal">
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label for="calc-team">Team size</label>
+            <div class="calc-val-display"><span id="team-val">25</span><span class="unit"> people</span></div>
+            <input type="range" id="calc-team" min="5" max="200" value="25" step="1">
+            <div class="range-labels"><span>5</span><span>200</span></div>
+          </div>
+          <div class="calc-field">
+            <label for="calc-hours">Hours/week on repetitive tasks (per person)</label>
+            <div class="calc-val-display"><span id="hours-val">15</span><span class="unit"> hrs/wk</span></div>
+            <input type="range" id="calc-hours" min="2" max="40" value="15" step="1">
+            <div class="range-labels"><span>2</span><span>40</span></div>
+          </div>
+          <div class="calc-field">
+            <label for="calc-rate">Average hourly employee cost</label>
+            <div class="calc-val-display">$<span id="rate-val">45</span><span class="unit">/hr</span></div>
+            <input type="range" id="calc-rate" min="20" max="150" value="45" step="5">
+            <div class="range-labels"><span>$20</span><span>$150</span></div>
+          </div>
         </div>
+        <div class="calc-divider"></div>
+        <div class="calc-results">
+          <div class="calc-result">
+            <div class="calc-result-val" id="calc-hours-saved">11,700</div>
+            <div class="calc-result-label">Hours saved per year</div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-val" id="calc-dollars-saved">$526,500</div>
+            <div class="calc-result-label">Estimated annual savings</div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-val" id="calc-weeks-freed">293</div>
+            <div class="calc-result-label">Work-weeks freed up</div>
+          </div>
+        </div>
+        <p class="calc-note">Based on 65% average task time reduction across our client portfolio. 48 working weeks per year. Individual results vary.</p>
+        <div class="calc-cta" style="margin-top:24px"><a href="#contact" class="btn btn-primary">Get a Custom Estimate</a></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="faq-list">
-          <div class="faq-item reveal">
-            <button class="faq-button" aria-expanded="false">
-              Will AI replace my employees?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-panel">
-              <div class="faq-panel-inner">
-                No. Our model is built around helping existing teams do better work faster. We design workflows
-                with human review points and adoption support, not a headcount-reduction story.
-              </div>
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">We believe AI should make work <span class="accent-text">better for humans</span></h2>
+          <p class="section-sub">We started Sagent-AI because we saw companies using AI to cut headcount — and failing. The ones who won were the ones who used AI to make their people more effective. That's all we do.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+              <div class="value-content"><h4>People-First, Always</h4><p>We won't work with companies looking to replace employees. Every engagement starts with the humans, not the technology.</p></div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="value-content"><h4>Measurable Outcomes</h4><p>We agree on specific, trackable metrics before we start. If the numbers don't move, we keep working until they do.</p></div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div class="value-content"><h4>Pragmatic, Not Hype</h4><p>We recommend what works — not what's trending. If a spreadsheet solves the problem better than AI, we'll tell you.</p></div>
             </div>
           </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-button" aria-expanded="false">
-              How long does implementation take?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-panel">
-              <div class="faq-panel-inner">
-                A typical first engagement reaches a production-ready workflow in about 6–8 weeks,
-                depending on team complexity, integrations, and internal review requirements.
-              </div>
+        </div>
+        <div class="about-visual reveal from-right">
+          <div class="about-card">
+            <p class="dia-label">Our collaboration model</p>
+            <div class="about-diagram">
+              <div class="dia-layer human"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Your Team — Strategy, Creativity, Decisions</div>
+              <div class="dia-connector"></div>
+              <div class="dia-layer ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 014 4c0 1.95-2 3-2 5h-4c0-2-2-3.05-2-5a4 4 0 014-4z"/><path d="M10 17v1a2 2 0 004 0v-1M8 11h8"/></svg>Sagent-AI Layer — Automation, Quality, Speed</div>
+              <div class="dia-connector c2"></div>
+              <div class="dia-layer outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Better Outcomes — Faster, Consistent, Sustainable</div>
             </div>
-          </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-button" aria-expanded="false">
-              Do we need a technical team to make this work?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-panel">
-              <div class="faq-panel-inner">
-                No. We handle the implementation work and design the system for the people actually doing the job,
-                not just technical stakeholders.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-button" aria-expanded="false">
-              What does a first conversation include?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-panel">
-              <div class="faq-panel-inner">
-                We discuss where repetitive work is creating drag, what workflows are most structured,
-                what outcomes matter to leadership, and whether your use case is a fit for a first pilot.
-              </div>
+            <div class="about-stats">
+              <div class="about-stat"><div class="about-stat-val" style="color:var(--accent)">100%</div><div class="about-stat-label">Employee retention<br>across engagements</div></div>
+              <div class="about-stat"><div class="about-stat-val" style="color:var(--indigo)">4.8/5</div><div class="about-stat-label">Average team<br>satisfaction score</div></div>
+              <div class="about-stat"><div class="about-stat-val" style="color:var(--green)">92%</div><div class="about-stat-label">Client retention<br>rate year-over-year</div></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-intro reveal">
-            <div class="section-label">Get Started</div>
-            <h2>Book a strategy call or send your workflow details.</h2>
-            <p>
-              Choose whichever path fits your buying style. If you are ready to talk, book time directly.
-              If you want to outline the workflow first, send a short request and we will follow up.
-            </p>
-
-            <ul class="contact-points">
-              <li>30-minute strategy conversation</li>
-              <li>Practical fit assessment, not a generic sales pitch</li>
-              <li>Clear recommendation, even if the answer is “not yet”</li>
-            </ul>
-
-            <button class="btn btn-primary" id="book-call-contact">
-              Book in Calendly
-              <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 8h10M9 4l4 4-4 4"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="contact-cards">
-            <div class="contact-card reveal">
-              <h3>Send a project request</h3>
-              <p>Replace the Formspree endpoint below with your real endpoint before launch.</p>
-
-              <form id="lead-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" novalidate>
-                <div class="form-grid">
-                  <div class="field-group">
-                    <label for="name">Full name</label>
-                    <input class="input" id="name" name="name" type="text" placeholder="Jane Smith" required />
-                  </div>
-
-                  <div class="field-group">
-                    <label for="email">Work email</label>
-                    <input class="input" id="email" name="email" type="email" placeholder="jane@company.com" required />
-                  </div>
-
-                  <div class="field-group">
-                    <label for="company">Company</label>
-                    <input class="input" id="company" name="company" type="text" placeholder="Acme Corp" />
-                  </div>
-
-                  <div class="field-group">
-                    <label for="team-size">Team size</label>
-                    <input class="input" id="team-size" name="team_size" type="text" placeholder="e.g. 30" />
-                  </div>
-
-                  <div class="field-group full">
-                    <label for="message">What workflow is slowing your team down?</label>
-                    <textarea
-                      class="input"
-                      id="message"
-                      name="message"
-                      placeholder="Describe the repetitive workflow, where quality slips, and what the team currently does manually."
-                      required
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div class="form-actions">
-                  <button class="btn btn-dark" type="submit" id="submit-btn">
-                    Send Request
-                    <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M3 8h10M9 4l4 4-4 4"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div class="form-status" id="form-status" aria-live="polite"></div>
-                <div class="form-meta">
-                  Submissions go to your Formspree endpoint. You can also swap this for HubSpot, Web3Forms, or your own backend.
-                </div>
-              </form>
-            </div>
-
-            <div class="contact-card reveal">
-              <h3>Prefer direct scheduling?</h3>
-              <p>
-                This page is wired for Calendly pop-up booking. Replace the placeholder Calendly URL in the script
-                with your live scheduling link.
-              </p>
-            </div>
-          </div>
+  <!-- ─── FAQ ─── -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Questions we get <span class="accent-text">all the time</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal d1">
+          <button class="faq-q" aria-expanded="false">Will AI replace my employees?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">No — and we won't work with you if that's the goal. Our entire model is built around making your existing team more effective, not redundant. Every engagement includes explicit protections to ensure AI augments rather than replaces. We've maintained 100% employee retention across all our client engagements.</div></div>
+        </div>
+        <div class="faq-item reveal d2">
+          <button class="faq-q" aria-expanded="false">How long does implementation take?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Initial deployment typically takes 6–10 weeks from kickoff. You'll see meaningful results within the first 30 days of using the system. The full ROI compounds over 6–12 months as the system learns and your team adopts the new workflows more deeply.</div></div>
+        </div>
+        <div class="faq-item reveal d3">
+          <button class="faq-q" aria-expanded="false">Do we need technical expertise in-house?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">No. We handle all the technical complexity. Your team needs zero technical background — if they can use email, they can use what we build. That's intentional. We design everything for the actual humans who will use it daily, not for IT departments.</div></div>
+        </div>
+        <div class="faq-item reveal d4">
+          <button class="faq-q" aria-expanded="false">What industries do you serve?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">We work best with teams where a significant portion of the day is spent on structured, repeatable work — insurance, legal, financial services, healthcare administration, professional services, and operations-heavy teams across industries. If your team has 10+ people doing similar tasks, we can likely help.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">How do you measure success?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">We agree on specific metrics before we start — usually time saved per employee per week, error rate reduction, and output quality scores. We track these rigorously and report monthly. We also measure employee satisfaction, because if people hate the system, it doesn't matter how efficient it is.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">What AI tools and platforms do you use?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">We're completely tool-agnostic and choose the best fit for your team's needs and existing tech stack. We work with major AI platforms including OpenAI, Anthropic, Microsoft Copilot, and purpose-built tools for specific industries. We never push a platform that earns us a commission — we recommend what actually works.</div></div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <div class="contact-shape contact-shape-1" aria-hidden="true"></div>
+    <div class="contact-shape contact-shape-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="contact-inner reveal">
+        <p class="section-label">Get Started</p>
+        <h2 class="contact-title">Ready to give your team <span style="color:var(--accent-light)">their time back?</span></h2>
+        <p class="contact-sub">Book a free 30-minute consultation. We'll assess your team's biggest opportunities, show you what's realistic, and give you an honest recommendation — even if it's "you don't need us."</p>
+        <form class="contact-form" id="contact-form" onsubmit="return false">
+          <div class="form-row">
+            <div><label class="form-label" for="f-name">Full name</label><input class="form-input" type="text" id="f-name" placeholder="Jane Smith" required></div>
+            <div><label class="form-label" for="f-email">Work email</label><input class="form-input" type="email" id="f-email" placeholder="jane@company.com" required></div>
+          </div>
+          <div class="form-row">
+            <div><label class="form-label" for="f-company">Company</label><input class="form-input" type="text" id="f-company" placeholder="Acme Corp"></div>
+            <div><label class="form-label" for="f-size">Team size</label><input class="form-input" type="text" id="f-size" placeholder="e.g. 30"></div>
+          </div>
+          <div><label class="form-label" for="f-msg">What's the biggest time-sink for your team?</label><textarea class="form-input" id="f-msg" placeholder="Tell us about the repetitive tasks your team spends the most time on..."></textarea></div>
+          <button type="submit" class="form-submit-btn" id="submit-btn">
+            Book Free Consultation
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3>Sagent-AI</h3>
-          <p>
-            Practical AI workflow systems for people-heavy teams that need better output, safer adoption,
-            and less repetitive work.
-          </p>
+          <div class="footer-logo">Sagent<span style="color:var(--accent-hover)">-AI</span></div>
+          <p class="footer-tagline">AI that empowers your team — not replaces them. We help people-heavy organizations save time, standardize work, and improve output quality.</p>
         </div>
-
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#case-study">Case Study</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:hello@sagent-ai.com">hello@sagent-ai.com</a></li>
-            <li><a href="#contact">Book a Strategy Call</a></li>
-            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Follow</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/company/your-company" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://x.com/your-handle" target="_blank" rel="noopener">X / Twitter</a></li>
-          </ul>
-        </div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="#services">Services</a></li><li><a href="#process">How It Works</a></li><li><a href="#results">Case Studies</a></li><li><a href="#about">About</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#calculator">ROI Calculator</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">hello@sagent-ai.com</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Twitter / X</a></li></ul></div>
       </div>
-
       <div class="footer-bottom">
-        <span>© 2026 Sagent-AI. All rights reserved.</span>
-        <span>Built for clarity, trust, and better workflow adoption.</span>
+        <span class="footer-copy">&copy; 2026 Sagent-AI Consulting. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
+  <!-- ─── JAVASCRIPT ─── -->
   <script>
+    /* Nav scroll */
     (function(){
-      const nav = document.getElementById('site-nav');
-      const toggle = document.getElementById('nav-toggle');
-      const menu = document.getElementById('mobile-nav');
-      const backdrop = document.getElementById('menu-backdrop');
-      const menuLinks = menu.querySelectorAll('a');
-      let lastFocused = null;
-
-      function onScroll() {
-        nav.classList.toggle('scrolled', window.scrollY > 16);
-      }
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      function getFocusable(container) {
-        return container.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
-      }
-
-      function openMenu() {
-        lastFocused = document.activeElement;
-        menu.classList.add('open');
-        backdrop.classList.add('open');
-        document.body.classList.add('menu-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Close menu');
-
-        const first = getFocusable(menu)[0];
-        if (first) first.focus();
-      }
-
-      function closeMenu() {
-        menu.classList.remove('open');
-        backdrop.classList.remove('open');
-        document.body.classList.remove('menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        if (lastFocused) lastFocused.focus();
-      }
-
-      toggle.addEventListener('click', function(){
-        if (menu.classList.contains('open')) closeMenu();
-        else openMenu();
-      });
-
-      backdrop.addEventListener('click', closeMenu);
-      menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      document.addEventListener('keydown', function(e){
-        if (!menu.classList.contains('open')) return;
-
-        if (e.key === 'Escape') {
-          closeMenu();
-          return;
-        }
-
-        if (e.key === 'Tab') {
-          const focusables = Array.from(getFocusable(menu));
-          if (!focusables.length) return;
-          const first = focusables[0];
-          const last = focusables[focusables.length - 1];
-
-          if (e.shiftKey && document.activeElement === first) {
-            e.preventDefault();
-            last.focus();
-          } else if (!e.shiftKey && document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
-          }
-        }
-      });
-
-      window.addEventListener('resize', function(){
-        if (window.innerWidth > 900 && menu.classList.contains('open')) closeMenu();
+      var nav=document.getElementById('nav'),t=false;
+      window.addEventListener('scroll',function(){
+        if(!t){requestAnimationFrame(function(){nav.classList.toggle('scrolled',window.scrollY>40);t=false});t=true}
       });
     })();
 
+    /* Mobile menu */
     (function(){
-      const elements = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) {
-        elements.forEach(el => el.classList.add('visible'));
-        return;
-      }
+      var toggle=document.getElementById('nav-toggle'),close=document.getElementById('nav-close'),links=document.getElementById('nav-links');
+      function open(){links.classList.add('open');toggle.setAttribute('aria-expanded','true')}
+      function shut(){links.classList.remove('open');toggle.setAttribute('aria-expanded','false')}
+      toggle.addEventListener('click',function(){links.classList.contains('open')?shut():open()});
+      close.addEventListener('click',shut);
+      links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',shut)});
+    })();
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+    /* Scroll reveal */
+    (function(){
+      var els=document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible')});return}
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}});
+      },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+      els.forEach(function(e){obs.observe(e)});
+    })();
+
+    /* Counter animations */
+    (function(){
+      var counters=document.querySelectorAll('[data-count]'),started=false;
+      function go(){
+        if(started)return;started=true;
+        counters.forEach(function(el){
+          if(el.dataset.static!==undefined){el.textContent='0';return}
+          var target=parseInt(el.dataset.count),suffix=el.dataset.suffix||'',dur=1800,start=performance.now();
+          function tick(now){
+            var p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3),cur=Math.round(target*e);
+            el.textContent=cur.toLocaleString()+(p>=1?'+':'')+suffix;
+            if(p<1)requestAnimationFrame(tick);
           }
+          requestAnimationFrame(tick);
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      elements.forEach(el => observer.observe(el));
+      }
+      var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting)go()})},{threshold:0.3});
+      counters.forEach(function(e){obs.observe(e)});
     })();
 
+    /* ROI Calculator */
     (function(){
-      const team = document.getElementById('calc-team');
-      const hours = document.getElementById('calc-hours');
-      const rate = document.getElementById('calc-rate');
-
-      const teamVal = document.getElementById('team-val');
-      const hoursVal = document.getElementById('hours-val');
-      const rateVal = document.getElementById('rate-val');
-
-      const savedEl = document.getElementById('calc-hours-saved');
-      const dollarsEl = document.getElementById('calc-dollars-saved');
-      const weeksEl = document.getElementById('calc-weeks-freed');
-
-      function formatNumber(n) {
-        return n.toLocaleString();
-      }
-
-      function animateValue(el, finalValue, prefix = '') {
-        const current = parseInt((el.textContent || '0').replace(/[^0-9]/g, ''), 10) || 0;
-        const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 350;
-        const start = performance.now();
-
-        function tick(now) {
-          const progress = duration === 0 ? 1 : Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const value = Math.round(current + (finalValue - current) * eased);
-          el.textContent = prefix + formatNumber(value);
-          if (progress < 1) requestAnimationFrame(tick);
+      var ts=document.getElementById('calc-team'),hs=document.getElementById('calc-hours'),rs=document.getElementById('calc-rate');
+      var tv=document.getElementById('team-val'),hv=document.getElementById('hours-val'),rv=document.getElementById('rate-val');
+      var rh=document.getElementById('calc-hours-saved'),rd=document.getElementById('calc-dollars-saved'),rw=document.getElementById('calc-weeks-freed');
+      var frames={};
+      function anim(el,target,prefix){
+        var id=el.id;if(frames[id])cancelAnimationFrame(frames[id]);
+        var from=parseInt((el.textContent||'0').replace(/[^0-9]/g,''))||0,dur=450,start=performance.now();
+        function tick(now){
+          var p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3),cur=Math.round(from+(target-from)*e);
+          el.textContent=(prefix||'')+cur.toLocaleString();
+          if(p<1)frames[id]=requestAnimationFrame(tick);
         }
-        requestAnimationFrame(tick);
+        frames[id]=requestAnimationFrame(tick);
       }
-
-      function calc() {
-        const t = Number(team.value);
-        const h = Number(hours.value);
-        const r = Number(rate.value);
-
-        teamVal.textContent = t;
-        hoursVal.textContent = h;
-        rateVal.textContent = r;
-
-        const hoursSaved = Math.round(t * h * 0.65 * 48);
-        const dollarsSaved = Math.round(hoursSaved * r);
-        const weeksFreed = Math.round(hoursSaved / 40);
-
-        animateValue(savedEl, hoursSaved);
-        animateValue(dollarsEl, dollarsSaved, '$');
-        animateValue(weeksEl, weeksFreed);
+      function calc(){
+        var t=+ts.value,h=+hs.value,r=+rs.value;
+        tv.textContent=t;hv.textContent=h;rv.textContent=r;
+        var saved=Math.round(t*h*0.65*48),dollars=Math.round(saved*r),weeks=Math.round(saved/40);
+        anim(rh,saved,'');anim(rd,dollars,'$');anim(rw,weeks,'');
       }
-
-      [team, hours, rate].forEach(input => input.addEventListener('input', calc));
+      ts.addEventListener('input',calc);hs.addEventListener('input',calc);rs.addEventListener('input',calc);
       calc();
     })();
 
+    /* FAQ accordion */
     (function(){
-      const faqItems = document.querySelectorAll('.faq-item');
-
-      faqItems.forEach(item => {
-        const button = item.querySelector('.faq-button');
-        const panel = item.querySelector('.faq-panel');
-
-        button.addEventListener('click', () => {
-          const isOpen = item.classList.contains('open');
-
-          faqItems.forEach(other => {
-            other.classList.remove('open');
-            other.querySelector('.faq-button').setAttribute('aria-expanded', 'false');
-            other.querySelector('.faq-panel').style.maxHeight = '0px';
-          });
-
-          if (!isOpen) {
-            item.classList.add('open');
-            button.setAttribute('aria-expanded', 'true');
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-          }
+      var items=document.querySelectorAll('.faq-item');
+      items.forEach(function(item){
+        item.querySelector('.faq-q').addEventListener('click',function(){
+          var isOpen=item.classList.contains('open');
+          items.forEach(function(o){o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');o.querySelector('.faq-a').style.maxHeight='0'});
+          if(!isOpen){item.classList.add('open');this.setAttribute('aria-expanded','true');item.querySelector('.faq-a').style.maxHeight=item.querySelector('.faq-a').scrollHeight+'px'}
         });
       });
     })();
 
+    /* Form demo */
     (function(){
-      const calendlyUrl = 'https://calendly.com/YOUR_CALENDLY_URL';
-      const triggers = [
-        document.getElementById('book-call-hero'),
-        document.getElementById('book-call-contact')
-      ].filter(Boolean);
-
-      function openCalendly() {
-        if (window.Calendly) {
-          window.Calendly.initPopupWidget({ url: calendlyUrl });
-        } else {
-          window.open(calendlyUrl, '_blank', 'noopener');
-        }
-      }
-
-      triggers.forEach(btn => btn.addEventListener('click', openCalendly));
+      var form=document.getElementById('contact-form'),btn=document.getElementById('submit-btn');
+      form.addEventListener('submit',function(e){
+        e.preventDefault();var orig=btn.innerHTML;
+        btn.innerHTML='<span>&#10003; Message Sent!</span>';btn.style.background='#059669';btn.style.color='#fff';
+        setTimeout(function(){btn.innerHTML=orig;btn.style.background='';btn.style.color='';form.reset()},3000);
+      });
     })();
 
+    /* Smooth scroll */
     (function(){
-      const form = document.getElementById('lead-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const status = document.getElementById('form-status');
-
-      form.addEventListener('submit', async function(e){
-        e.preventDefault();
-        status.textContent = '';
-        status.className = 'form-status';
-
-        if (!form.reportValidity()) return;
-
-        const original = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending...';
-
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            form.reset();
-            status.textContent = 'Thanks — your request was sent successfully.';
-            status.classList.add('success');
-          } else {
-            const data = await response.json().catch(() => ({}));
-            status.textContent = data.errors?.[0]?.message || 'Something went wrong. Please try again.';
-            status.classList.add('error');
-          }
-        } catch (err) {
-          status.textContent = 'Network error. Please try again.';
-          status.classList.add('error');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = original;
-        }
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click',function(e){
+          var id=this.getAttribute('href');if(id==='#')return;
+          var t=document.querySelector(id);
+          if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'})}
+        });
       });
     })();
   </script>
